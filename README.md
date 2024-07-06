@@ -1,16 +1,12 @@
-# exam_advance
+# News App
 
-A new Flutter project.
 
-## Getting Started
+<img src ="https://github.com/Meshva30/exam_advance/assets/136339359/49129e9f-06cb-4fbd-a6a8-f3406703e77b" width=240>
+<img src="https://github.com/Meshva30/exam_advance/assets/136339359/b6163c1d-c36f-4a2e-8587-17aef9659e65" width=240>
+<img src="https://github.com/Meshva30/exam_advance/assets/136339359/5eff4c35-f416-49df-b7e0-5238a59a0948" width=240>
+<img src="https://github.com/Meshva30/exam_advance/assets/136339359/05c193ca-f075-4676-8a94-550a8a7d8e7e" width=240>
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Video
+https://github.com/Meshva30/exam_advance/assets/136339359/38dfa1a0-8471-4476-a36d-87b34fa510a8
