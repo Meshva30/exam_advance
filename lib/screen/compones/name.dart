@@ -70,23 +70,23 @@ Center name_Prize(DataModel datamodel, int productIndex) {
                     style: const TextStyle(color: Colors.grey, fontSize: 12),
                   ),
                   SizedBox(
-                    width: 100,
+                    width: 40,
                   ),
                   Text(
                     '${datamodel.price}',
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
               SizedBox(
-                height: 40,
+                height: 15,
               ),
               Text(
                 datamodel.title,
-                textAlign: TextAlign.center,
+                textAlign: TextAlign.start,
                 style: const TextStyle(
                   color: Color(0xFF484848),
-                  fontSize: 25,
+                  fontSize: 20,
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.bold,
                   height: 0,

@@ -42,7 +42,7 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(
-                    width: 200,
+                    width: 100,
                   ),
                   Container(
                     height: 40,
@@ -154,14 +154,14 @@ class HomeScreen extends StatelessWidget {
                         .toList();
 
                     return SizedBox(
-                      height: 500,
+                      height: 560,
                       child: GridView.builder(
                         scrollDirection: Axis.vertical,
                         gridDelegate:
                             const SliverGridDelegateWithFixedCrossAxisCount(
                                 crossAxisCount: 2,
                                 childAspectRatio: 1 / 1.5,
-                                mainAxisExtent: 240),
+                                mainAxisExtent: 250),
                         itemCount: mainModal.length,
                         itemBuilder: (context, index) {
                           var datamodel = mainModal[index];
@@ -207,11 +207,8 @@ class HomeScreen extends StatelessWidget {
                                     Text(
                                       '${datamodel.price}',
                                       style: TextStyle(
-                                          fontSize: 18,
+                                          fontSize: 15,
                                           fontWeight: FontWeight.bold),
-                                    ),
-                                    SizedBox(
-                                      width: 8,
                                     ),
                                     Icon(
                                       Icons.star,
@@ -223,9 +220,7 @@ class HomeScreen extends StatelessWidget {
                                       style: const TextStyle(
                                           fontWeight: FontWeight.bold),
                                     ),
-                                    SizedBox(
-                                      width: 8,
-                                    ),
+
                                     Text(
                                       '(${datamodel.rating.count} Reviews)',
                                       style: const TextStyle(
