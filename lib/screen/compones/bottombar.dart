@@ -24,7 +24,7 @@ Container bottomNavigation() {
             ),
             child: const Center(
               child: Text(
-                'Start Cooking',
+                'Add to Cart',
                 style: TextStyle(
                   fontSize: 18,
                   color: Colors.white,
