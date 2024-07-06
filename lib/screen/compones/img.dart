@@ -1,10 +1,6 @@
-
 import 'package:flutter/material.dart';
 
-
 import '../../model/model.dart';
-
-
 
 Column productImage(DataModel datamodel, int productIndex) {
   return Column(
@@ -14,17 +10,16 @@ Column productImage(DataModel datamodel, int productIndex) {
           Container(
             height: 350,
             decoration: BoxDecoration(
-
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: NetworkImage(
-                datamodel.image,
+                  datamodel.image,
                 ),
               ),
             ),
           ),
         ],
-      )
+      ),
     ],
   );
 }

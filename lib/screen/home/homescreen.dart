@@ -1,11 +1,8 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 
-import '../../model/model.dart';
+import '../../controller/api_controller.dart';
 import '../../utils/list.dart';
-import '../compones/bottombar.dart';
 import '../detils/detilsscreen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -14,13 +11,13 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(left: 10, right: 10, top: 50),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -136,35 +133,27 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              FutureBuilder(
-                future: rootBundle.loadString('assets/jsondata.json'),
-                builder: (context, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.waiting) {
+              Consumer<HomeProvider>(
+                builder: (context, provider, child) {
+                  if (provider.isLoading) {
+                    return const Center(child: CircularProgressIndicator());
+                  } else if (provider.mainModal.isEmpty) {
                     return const Center(
-                      child: CircularProgressIndicator(),
+                      child: Text('No data available'),
                     );
-                  } else if (snapshot.hasError) {
-                    return const Center(
-                      child: Text('Error loading data'),
-                    );
-                  } else if (snapshot.hasData) {
-                    List<dynamic> jsonDataList = jsonDecode(snapshot.data!);
-                    List<DataModel> mainModal = jsonDataList
-                        .map((data) => DataModel.fromJson(data))
-                        .toList();
-
+                  } else {
                     return SizedBox(
                       height: 560,
                       child: GridView.builder(
                         scrollDirection: Axis.vertical,
                         gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 2,
-                                childAspectRatio: 1 / 1.5,
-                                mainAxisExtent: 250),
-                        itemCount: mainModal.length,
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            childAspectRatio: 1 / 1.5,
+                            mainAxisExtent: 250),
+                        itemCount: provider.mainModal.length,
                         itemBuilder: (context, index) {
-                          var datamodel = mainModal[index];
+                          var datamodel = provider.mainModal[index];
                           return InkWell(
                             onTap: () {
                               Navigator.push(
@@ -206,11 +195,11 @@ class HomeScreen extends StatelessWidget {
                                   children: [
                                     Text(
                                       '${datamodel.price}',
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontSize: 15,
                                           fontWeight: FontWeight.bold),
                                     ),
-                                    Icon(
+                                    const Icon(
                                       Icons.star,
                                       color: Colors.yellow,
                                       size: 18,
@@ -220,7 +209,6 @@ class HomeScreen extends StatelessWidget {
                                       style: const TextStyle(
                                           fontWeight: FontWeight.bold),
                                     ),
-
                                     Text(
                                       '(${datamodel.rating.count} Reviews)',
                                       style: const TextStyle(
@@ -233,10 +221,6 @@ class HomeScreen extends StatelessWidget {
                           );
                         },
                       ),
-                    );
-                  } else {
-                    return const Center(
-                      child: Text('No data available'),
                     );
                   }
                 },
@@ -259,10 +243,10 @@ Widget tabbar_container(String text, int index) {
         borderRadius: BorderRadius.circular(20)),
     child: Center(
         child: Text(
-      text,
-      style: TextStyle(
-          color: (index == 0) ? Colors.white : Colors.black,
-          fontWeight: FontWeight.bold),
-    )),
+          text,
+          style: TextStyle(
+              color: (index == 0) ? Colors.white : Colors.black,
+              fontWeight: FontWeight.bold),
+        )),
   );
 }
